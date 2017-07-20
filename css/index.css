@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+}
+
+.lists {
+    width: 800px;
+}
+
+.list {
+    width: 250px;
+    display: inline-block;
+}
+
+.card {
+    width: 200px;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+div.card h3 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+div.card p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

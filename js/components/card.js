@@ -1,18 +1,18 @@
-// const React = require('react');
-// const ReactDOM = require('react-dom');
-// const createReactClass = require('create-react-class');
-
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 class Card extends Component {
-    render() {
-        return (
-            <div className="card">
-                <h2>{this.props.title}</h2>
-                <p>{this.props.content}</p> 
-            </div>
-        );
-    }
-};
+  render() {
+    return (
+      <div className="card">
+        <h3>
+          {this.props.title}
+        </h3>
+        <p>
+          {this.props.content}
+        </p>
+      </div>
+    );
+  }
+}
 
-export default Card;    
+export default Card;
