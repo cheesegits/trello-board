@@ -4,17 +4,14 @@ import Card from "./card";
 
 class List extends Component {
   listCards(cards) {
-    console.log("mock array: ", cards);
     const createCards = cards.map(card => {
-      console.log("Card to be added: ", card); // correct
-      <Card
+      return <Card
         title={card}
         key={card.toString()}
         content="Content of the card goes here"
       />;
-      console.log("added: ", createCards); // undefined
     });
-    // return createCards; // needed?
+    return createCards;
   }
   render() {
     return (
