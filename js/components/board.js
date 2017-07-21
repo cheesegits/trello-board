@@ -8,23 +8,30 @@ class Board extends Component {
     this.state = {
       inputValue: "",
       cardList: []
-    }
+    };
     this.onAddInputChanged = this.onAddInputChanged.bind(this);
     this.onAddSubmit = this.onAddSubmit.bind(this);
   }
   onAddInputChanged(characters) {
-    // console.log("keystroke received: ", characters);
-    this.setState({
-      inputValue: characters // not sure if this will work
-    });
+    console.log("keystrokes received: ", characters.target.value);
+    this.setState(
+      {
+        inputValue: characters.target.value
+      },
+      function() {
+        console.log("input value is equal to: ", this.state.inputValue);
+      }
+    );
   }
-  onAddSubmit(newCardTitle) {
+  onAddSubmit(event) {
+    event.preventDefault();
     var newArray = this.state.cardList.slice();
-    // console.log("Current state: ", newArray);
-    // console.log("Card to be pushed: ", this.state.inputValue);
+    console.log("Current state: ", newArray);
+    console.log("Card to be pushed: ", this.state.inputValue);
     newArray.push(this.state.inputValue);
-    this.setState({ cardList: newArray });
-    // console.log("Was the new card added to the array?: ", this.state.cardList);
+    this.setState({ cardList: newArray }, function() {
+      console.log("new cardList: ", this.state.cardList);
+    });
   }
   render() {
     return (
@@ -33,19 +40,18 @@ class Board extends Component {
         <div className="lists">
           <List
             title="To-Do"
-            onChange={character => this.onAddInputChanged}
-            onSubmit={newCardTitle => this.onAddInputChanged}
+            onChange={characters => this.onAddInputChanged(characters)}
+            onSubmit={this.onAddSubmit}
           />
           <List
             title="In Progress"
-            onChange={character => this.onAddInputChanged}
-            onSubmit={newCardTitle => this.onAddInputChanged}
-            }
+            onChange={characters => this.onAddInputChanged(characters)}
+            onSubmit={this.onAddSubmit}
           />
           <List
             title="Finished"
-            onChange={character => this.onAddInputChanged}
-            onSubmit={newCardTitle => this.onAddInputChanged}
+            onChange={characters => this.onAddInputChanged(characters)}
+            onSubmit={this.onAddSubmit}
           />
         </div>
       </div>
