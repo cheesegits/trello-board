@@ -1,10 +1,10 @@
-require('babel-polyfill');
+require("babel-polyfill");
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import Board from './components/board';
+import TrelloBoard from "./components/board";
 
-document.addEventListener('DOMContentLoaded', function() {
-    ReactDOM.render( <Board /> , document.getElementById('app'));
+document.addEventListener("DOMContentLoaded", function() {
+  ReactDOM.render(<TrelloBoard />, document.getElementById("app"));
 });
